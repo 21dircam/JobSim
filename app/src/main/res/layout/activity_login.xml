@@ -13,8 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/pixelfont"
         android:hint="@string/email_address"
-        android:inputType="textEmailAddress">
+        android:inputType="textEmailAddress"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="40sp">
 
         <requestFocus></requestFocus>
     </EditText>
@@ -24,8 +27,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/pixelfont"
+        android:hint="@string/password"
         android:inputType="textPassword"
-        android:hint="@string/password"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="40sp" />
 
     <EditText
         android:id="@+id/et_name"
@@ -40,15 +46,21 @@
         android:id="@+id/bt_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/log_in" />
+        android:fontFamily="@font/pixelfont"
+        android:text="@string/log_in"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/tv_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer"
+        android:fontFamily="@font/pixelfont"
         android:gravity="center"
         android:text="@string/sign_up"
-        android:layout_marginTop="@dimen/spacer"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/bt_signup"
