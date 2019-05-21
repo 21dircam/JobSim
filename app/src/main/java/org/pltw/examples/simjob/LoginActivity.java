@@ -42,8 +42,9 @@ public class LoginActivity extends AppCompatActivity {
         tvSignup = findViewById(R.id.tv_signup);
         btSignup = findViewById(R.id.bt_signup);
 
-        Backendless.initApp( getString(R.string.backendless_app_id),
-                String.valueOf(this),
+        Backendless.initApp(
+                this,
+                getString(R.string.backendless_app_id),
                 getString(R.string.backendless_android_api_key));
 
         tvSignup.setOnClickListener(new View.OnClickListener() {
