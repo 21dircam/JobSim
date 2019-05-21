@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         btSignup = findViewById(R.id.bt_signup);
 
         Backendless.initApp(
+                this,
                 getString(R.string.backendless_app_id),
                 getString(R.string.backendless_android_api_key));
 
