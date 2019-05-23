@@ -50,11 +50,12 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
+
         findViewById(R.id.bt_makeMoney).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 
-
+                createMoney();
             }
         });
 
@@ -65,6 +66,14 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+
+    private void createMoney(){
+        // TODO add if statement to see if money has been created
+        Money money = new Money();
+        money.setMoney(etMoneyCount.getText());
+        money = money.getMoney() + 1;
     }
 
     @Override
