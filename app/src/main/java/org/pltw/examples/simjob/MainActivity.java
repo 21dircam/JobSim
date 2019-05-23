@@ -13,15 +13,22 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity 
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    private EditText etMoneyCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // I changed this
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        etMoneyCount = findViewById(R.id.et_moneyCount);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -32,6 +39,25 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
+        fab =  findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Todo add save everything
+
+            }
+        });
+
+        findViewById(R.id.bt_makeMoney).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 
+
+            }
+        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
