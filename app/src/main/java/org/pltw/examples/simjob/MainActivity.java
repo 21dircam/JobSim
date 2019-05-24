@@ -14,12 +14,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity 
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    private EditText etMoneyCount;
+    private TextView etMoneyCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 createMoney();
+
             }
         });
 
@@ -74,6 +78,7 @@ public class MainActivity extends AppCompatActivity
         Money money = new Money();
         money.setMoney(Double.parseDouble(etMoneyCount.getText().toString()));
         money.addMoney(1);
+        etMoneyCount.setText(Double.toString(money.getMoney()));
     }
 
     @Override
