@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity
     private void createMoney(){
         // TODO add if statement to see if money has been created
         Money money = new Money();
-        money.setMoney(etMoneyCount.getText());
-        money = money.getMoney() + 1;
+        money.setMoney(Double.parseDouble(etMoneyCount.getText().toString()));
+        money.addMoney(1);
     }
 
     @Override

@@ -14,4 +14,8 @@ public class Money {
     public void setMoney(double money) {
         this.money = money;
     }
+
+    public void addMoney(double money) {
+        this.money += money;
+    }
 }
