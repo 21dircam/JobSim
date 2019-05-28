@@ -9,7 +9,7 @@
     tools:context=".StartPage">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/bt-next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pixeltext"
@@ -34,7 +34,7 @@
         android:text="Sim Job"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="170sp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/bt-next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,7 +49,7 @@
         android:fontFamily="@font/pixeltext"
         android:text="Created by Orbital Shaft (Camdin and Jackson)"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/bt-next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
