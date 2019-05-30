@@ -2,6 +2,7 @@ package org.pltw.examples.simjob;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Movie;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,8 +18,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+import com.backendless.persistence.DataQueryBuilder;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity 
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -61,10 +71,55 @@ public class MainActivity extends AppCompatActivity
 
     private void createMoney(){
         // TODO add if statement to see if money has been created
-        Money money = new Money();
-        money.setMoney(Double.parseDouble(etMoneyCount.getText().toString()));
-        money.addMoney(1);
-        etMoneyCount.setText(Double.toString(money.getMoney()));
+        Backendless.Data.of(Money.class).find(money, new AsyncCallback<Money>() {
+            @Override
+            public void handleResponse(Money response) {
+                Money money = response;
+                if(response != null){
+                    Backendless.Persistence.save( money, new AsyncCallback<Money>() {
+                        @Override
+                        public void handleResponse( Money response )
+                        {
+
+                        }
+                        @Override
+                        public void handleFault( BackendlessFault fault )
+                        {
+                            // an error has occurred, the error code can be retrieved with fault.getCode()
+                        }
+                    } );
+                    etMoneyCount.setText(Double.toString(money.getMoney()));
+                }else{
+                    money.setMoney(Double.parseDouble(etMoneyCount.getText().toString()));
+                    money.addMoney(1);
+                    etMoneyCount.setText(Double.toString(money.getMoney()));
+                    Backendless.Persistence.save(money, new AsyncCallback<Money>() {
+                        public void handleResponse(Money response) {
+
+
+                        }
+
+                        public void handleFault(BackendlessFault fault) {
+
+                        }
+
+                        {
+
+                        }
+                    });
+
+                }
+
+            }
+
+
+            @Override
+            public void handleFault(BackendlessFault fault) {
+
+            }
+        });
+
+
     }
 
     @Override
