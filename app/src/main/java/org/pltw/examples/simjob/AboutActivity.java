@@ -15,56 +15,31 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.widget.EditText;
-import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-public class MainActivity extends AppCompatActivity 
+public class AboutActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-
-    private TextView etMoneyCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // I changed this
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        etMoneyCount = findViewById(R.id.et_moneyCount);
-
+        setContentView(R.layout.activity_about);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
-
-        findViewById(R.id.bt_makeMoney).setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createMoney();
-                //TODO add save to backendless
-
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-            this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-    }
-
-
-    private void createMoney(){
-        // TODO add if statement to see if money has been created
-        Money money = new Money();
-        money.setMoney(Double.parseDouble(etMoneyCount.getText().toString()));
-        money.addMoney(1);
-        etMoneyCount.setText(Double.toString(money.getMoney()));
     }
 
     @Override
@@ -76,10 +51,11 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.about, menu);
         return true;
     }
 
@@ -104,11 +80,11 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_about) {
-            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+        if (id == R.id.nav_home) {
+            Intent intent = new Intent(AboutActivity.this, MainActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_shop) {
-            Intent intent = new Intent(MainActivity.this, ShopActivity.class);
+            Intent intent = new Intent(AboutActivity.this, ShopActivity.class);
             startActivity(intent);
         }
 
