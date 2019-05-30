@@ -16,11 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ShopPage"
-            android:label="@string/title_activity_shop_page"
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".StartPage"
+            android:name=".ShopActivity"
+            android:label="@string/title_activity_shop_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".StartActivity"
             android:label="@string/title_activity_start_page"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

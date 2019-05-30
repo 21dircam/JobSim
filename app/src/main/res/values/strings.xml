@@ -42,5 +42,6 @@
     <string name="shop">Shop</string>
     <string name="title_activity_shop_page">ShopPage</string>
     <string name="home">Home</string>
+    <string name="title_activity_about">About</string>
 
 </resources>
