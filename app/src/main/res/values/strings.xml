@@ -38,5 +38,9 @@
     <string name="title_activity_start_page">StartPage</string>
     <string name="clicktomakemoney">Click To Make Money</string>
     <string name="zero_0">zero_0</string>
+    <string name="about">About</string>
+    <string name="shop">Shop</string>
+    <string name="title_activity_shop_page">ShopPage</string>
+    <string name="home">Home</string>
 
 </resources>
