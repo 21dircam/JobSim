@@ -33,7 +33,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity 
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    private Money money;
     private TextView etMoneyCount;
 
     @Override
@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        createMoney();
+
 
 
 
@@ -53,7 +55,22 @@ public class MainActivity extends AppCompatActivity
         findViewById(R.id.bt_makeMoney).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createMoney();
+                money.addMoney(1);
+                etMoneyCount.setText(Double.toString(money.getMoney()));
+                Backendless.Persistence.save(money, new AsyncCallback<Money>() {
+                    public void handleResponse(Money response) {
+
+
+                    }
+
+                    public void handleFault(BackendlessFault fault) {
+
+                    }
+
+                    {
+
+                    }
+                });
                 //TODO add save to backendless
 
             }
@@ -70,26 +87,16 @@ public class MainActivity extends AppCompatActivity
 
 
     private void createMoney(){
-        // TODO add if statement to see if money has been created
-        Backendless.Data.of(Money.class).find(money, new AsyncCallback<Money>() {
-            @Override
-            public void handleResponse(Money response) {
-                Money money = response;
-                if(response != null){
-                    Backendless.Persistence.save( money, new AsyncCallback<Money>() {
-                        @Override
-                        public void handleResponse( Money response )
-                        {
 
-                        }
-                        @Override
-                        public void handleFault( BackendlessFault fault )
-                        {
-                            // an error has occurred, the error code can be retrieved with fault.getCode()
-                        }
-                    } );
+        // TODO add if statement to see if money has been created
+        Backendless.Data.of(Money.class).find(new AsyncCallback<List<Money>>() {
+            @Override
+            public void handleResponse(List<Money> response) {
+                if(response != null && response.size() > 0){
+                    money = response.get(0);
                     etMoneyCount.setText(Double.toString(money.getMoney()));
                 }else{
+                    Money money = new Money();
                     money.setMoney(Double.parseDouble(etMoneyCount.getText().toString()));
                     money.addMoney(1);
                     etMoneyCount.setText(Double.toString(money.getMoney()));
@@ -107,7 +114,6 @@ public class MainActivity extends AppCompatActivity
 
                         }
                     });
-
                 }
 
             }
@@ -121,6 +127,9 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+
+
 
     @Override
     public void onBackPressed() {
