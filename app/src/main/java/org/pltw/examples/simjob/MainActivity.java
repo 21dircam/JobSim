@@ -59,8 +59,7 @@ public class MainActivity extends AppCompatActivity
                 etMoneyCount.setText(Double.toString(money.getMoney()));
                 Backendless.Persistence.save(money, new AsyncCallback<Money>() {
                     public void handleResponse(Money response) {
-
-
+                        money = response;
                     }
 
                     public void handleFault(BackendlessFault fault) {
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity
 
                     }
                 });
-                //TODO add save to backendless
+
 
             }
         });
@@ -88,7 +87,6 @@ public class MainActivity extends AppCompatActivity
 
     private void createMoney(){
 
-        // TODO add if statement to see if money has been created
         Backendless.Data.of(Money.class).find(new AsyncCallback<List<Money>>() {
             @Override
             public void handleResponse(List<Money> response) {
@@ -96,14 +94,13 @@ public class MainActivity extends AppCompatActivity
                     money = response.get(0);
                     etMoneyCount.setText(Double.toString(money.getMoney()));
                 }else{
-                    Money money = new Money();
+                    money = new Money();
                     money.setMoney(Double.parseDouble(etMoneyCount.getText().toString()));
                     money.addMoney(1);
                     etMoneyCount.setText(Double.toString(money.getMoney()));
                     Backendless.Persistence.save(money, new AsyncCallback<Money>() {
                         public void handleResponse(Money response) {
-
-
+                            money = response;
                         }
 
                         public void handleFault(BackendlessFault fault) {
