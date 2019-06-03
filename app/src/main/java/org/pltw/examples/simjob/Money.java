@@ -20,9 +20,13 @@ public class Money {
         this.money += money;
     }
 
+    public void subtractMoney(double money){this.money -= money;}
+
     public String getObjectId() {
         return objectId;
     }
+
+
 
     public void setObjectId(String objectId) {
         this.objectId = objectId;
