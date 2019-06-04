@@ -1,10 +1,7 @@
 package org.pltw.examples.simjob;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,8 +13,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+
+import java.util.List;
+
 public class ShopActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private Money money;
+    private int cost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,58 @@ public class ShopActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        findViewById(R.id.bt_KeyBoard).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cost = 70;
+                Backendless.Data.of(Money.class).find(new AsyncCallback<List<Money>>() {
+                    @Override
+                    public void handleResponse(List<Money> response) {
+
+                    }
+
+
+                    @Override
+                    public void handleFault(BackendlessFault fault) {
+
+                    }
+                });
+
+
+
+            }
+        });
+        findViewById(R.id.bt_Suit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+
+
+            }
+        });
+        findViewById(R.id.bt_Computer).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+
+
+            }
+        });
+        findViewById(R.id.bt_Promtion).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+
+
+            }
+        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -33,7 +90,34 @@ public class ShopActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
     }
+
+    private void subtractMoney(){
+        Backendless.Data.of(Money.class).find(new AsyncCallback<List<Money>>() {
+            @Override
+            public void handleResponse(List<Money> response) {
+                money = response.get(0);
+                money.subtractMoney(cost);
+
+
+            }
+
+
+            @Override
+            public void handleFault(BackendlessFault fault) {
+
+            }
+        });
+
+    }
+
+
+
+
+
+
+
 
     @Override
     public void onBackPressed() {
