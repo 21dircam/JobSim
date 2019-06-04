@@ -8,4 +8,20 @@
     tools:context=".AboutActivity"
     tools:showIn="@layout/app_bar_about">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="380dp"
+        android:layout_height="714dp"
+        android:layout_marginTop="83dp"
+        android:layout_marginBottom="33dp"
+        android:fontFamily="@font/pixeltext"
+        android:text="Camdin Dirnberger was thinking about Jackson Flint again. Jackson was a thicc Bro with ginger foot and skinny left foot.  Camdin walked over to the window and reflected on his bloody surroundings. He had always hated blue the bed with its obedient, old one lantern. It was a place that encouraged his tendency to feel happy.  Then he saw something in the distance, or rather someone. It was the a thicc figure of Jackson Flint.  Camdin gulped. He glanced at his own reflection. He was a sexy, hotheaded, 7up drinker with strong foot and weak left foot. His friends saw him as a green, grated God. Once, he had even helped a tense Gabe cross the road.  But not even a sexy person who had once helped a tense Gabe cross the road, was prepared for what Jackson had in store today.  The rain hammered like loling zebras, making Camdin conflicted. Camdin grabbed a bright dollar that had been strewn nearby; he massaged it with his fingers.  As Camdin stepped outside and Jackson came closer, he could see the crooked glint in his eye.  Jackson gazed with the affection of 8783 verbose black bears. He said, in hushed tones, &quot;I love you and I want Knowledge.&quot;  Camdin looked back, even more conflicted and still fingering the bright dollar. &quot;Jackson, you're the greatest pixel art creator,&quot; he replied.  They looked at each other with sad feelings, like two chubby, crooked cats typing at a very hairy party for death, which had kpop music playing in the background and two pos uncles yelling to the beat.  Camdin regarded Jackson's ginger foot and skinny left foot. &quot;I feel the same way!&quot; revealed Camdin with a delighted grin.  Jackson looked confused, his emotions blushing like a cool, clear computer.  Then Jackson came inside for a nice drink of 7up.  THE END "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.051" />
 </android.support.constraint.ConstraintLayout>
