@@ -15,6 +15,9 @@ public class Keyboard {
     public void setKeyboard(int keyboard) {
         this.keyboard = keyboard;
     }
+    public void mulitplyKeyboard(int mulitply){
+        this.keyboard = keyboard * mulitply;
+    }
 
     public String getObjectId() {
         return objectId;

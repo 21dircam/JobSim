@@ -17,12 +17,17 @@ import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 
+import java.security.Key;
 import java.util.List;
 
 public class ShopActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private Money money;
     private int cost;
+    private Keyboard keyboard;
+    private Suit suit;
+    private Computer computer;
+    private Promotion promotion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +39,46 @@ public class ShopActivity extends AppCompatActivity
         findViewById(R.id.bt_KeyBoard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cost = 70;
-                Backendless.Data.of(Money.class).find(new AsyncCallback<List<Money>>() {
+                cost = 4;
+                Backendless.Data.of(Keyboard.class).find(new AsyncCallback<List<Keyboard>>() {
                     @Override
-                    public void handleResponse(List<Money> response) {
+                    public void handleResponse(List<Keyboard> response) {
+                        if(response != null && response.size() > 0){
+                            keyboard = response.get(0);
+                            keyboard.mulitplyKeyboard(4);
+                            Backendless.Persistence.save(keyboard,  new AsyncCallback<Keyboard>() {
+                                public void handleResponse(Keyboard response) {
+                                    keyboard = response;
+                                }
 
+                                public void handleFault(BackendlessFault fault) {
+
+                                }
+
+                                {
+
+                                }
+                            });
+                            subtractMoney();
+                        }
+                        else{
+                            keyboard = new Keyboard();
+                            keyboard.mulitplyKeyboard(4);
+                            Backendless.Persistence.save(keyboard,  new AsyncCallback<Keyboard>() {
+                                public void handleResponse(Keyboard response) {
+                                    keyboard = response;
+                                }
+
+                                public void handleFault(BackendlessFault fault) {
+
+                                }
+
+                                {
+
+                                }
+                            });
+                            subtractMoney();
+                        }
                     }
 
 
@@ -55,7 +95,54 @@ public class ShopActivity extends AppCompatActivity
         findViewById(R.id.bt_Suit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                cost = 10;
+                Backendless.Data.of(Suit.class).find(new AsyncCallback<List<Suit>>() {
+                    @Override
+                    public void handleResponse(List<Suit> response) {
+                        if(response != null && response.size() > 0){
+                            suit = response.get(0);
+                            suit.mulitplySuit(2);
+                            Backendless.Persistence.save(suit,  new AsyncCallback<Suit>() {
+                                public void handleResponse(Suit response) {
+                                    suit = response;
+                                }
 
+                                public void handleFault(BackendlessFault fault) {
+
+                                }
+
+                                {
+
+                                }
+                            });
+                            subtractMoney();
+                        }
+                        else{
+                            suit = new Suit();
+                            suit.mulitplySuit(2);
+                            Backendless.Persistence.save(suit,  new AsyncCallback<Suit>() {
+                                public void handleResponse(Suit response) {
+                                    suit = response;
+                                }
+
+                                public void handleFault(BackendlessFault fault) {
+
+                                }
+
+                                {
+
+                                }
+                            });
+                            subtractMoney();
+                        }
+                    }
+
+
+                    @Override
+                    public void handleFault(BackendlessFault fault) {
+
+                    }
+                });
 
 
 
@@ -65,7 +152,54 @@ public class ShopActivity extends AppCompatActivity
         findViewById(R.id.bt_Computer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                cost = 100;
+                Backendless.Data.of(Computer.class).find(new AsyncCallback<List<Computer>>() {
+                    @Override
+                    public void handleResponse(List<Computer> response) {
+                        if(response != null && response.size() > 0){
+                            computer = response.get(0);
+                            computer.mulitplyComputer(4);
+                            Backendless.Persistence.save(computer,  new AsyncCallback<Computer>() {
+                                public void handleResponse(Computer response) {
+                                    computer = response;
+                                }
 
+                                public void handleFault(BackendlessFault fault) {
+
+                                }
+
+                                {
+
+                                }
+                            });
+                            subtractMoney();
+                        }
+                        else{
+                            computer = new Computer();
+                            computer.mulitplyComputer(2);
+                            Backendless.Persistence.save(computer,  new AsyncCallback<Computer>() {
+                                public void handleResponse(Computer response) {
+                                    computer = response;
+                                }
+
+                                public void handleFault(BackendlessFault fault) {
+
+                                }
+
+                                {
+
+                                }
+                            });
+                            subtractMoney();
+                        }
+                    }
+
+
+                    @Override
+                    public void handleFault(BackendlessFault fault) {
+
+                    }
+                });
 
 
 
@@ -75,7 +209,54 @@ public class ShopActivity extends AppCompatActivity
         findViewById(R.id.bt_Promtion).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                cost = 100000;
+                Backendless.Data.of(Promotion.class).find(new AsyncCallback<List<Promotion>>() {
+                    @Override
+                    public void handleResponse(List<Promotion> response) {
+                        if(response != null && response.size() > 0){
+                            promotion = response.get(0);
+                            promotion.mulitplyPromotion(100);
+                            Backendless.Persistence.save(promotion,  new AsyncCallback<Promotion>() {
+                                public void handleResponse(Promotion response) {
+                                    promotion = response;
+                                }
 
+                                public void handleFault(BackendlessFault fault) {
+
+                                }
+
+                                {
+
+                                }
+                            });
+                            subtractMoney();
+                        }
+                        else{
+                            promotion = new Promotion();
+                            promotion.mulitplyPromotion(100);
+                            Backendless.Persistence.save(promotion,  new AsyncCallback<Promotion>() {
+                                public void handleResponse(Promotion response) {
+                                    promotion = response;
+                                }
+
+                                public void handleFault(BackendlessFault fault) {
+
+                                }
+
+                                {
+
+                                }
+                            });
+                            subtractMoney();
+                        }
+                    }
+
+
+                    @Override
+                    public void handleFault(BackendlessFault fault) {
+
+                    }
+                });
 
 
 
@@ -99,6 +280,19 @@ public class ShopActivity extends AppCompatActivity
             public void handleResponse(List<Money> response) {
                 money = response.get(0);
                 money.subtractMoney(cost);
+                Backendless.Persistence.save(money, new AsyncCallback<Money>() {
+                    public void handleResponse(Money response) {
+                        money = response;
+                    }
+
+                    public void handleFault(BackendlessFault fault) {
+
+                    }
+
+                    {
+
+                    }
+                });
 
 
             }

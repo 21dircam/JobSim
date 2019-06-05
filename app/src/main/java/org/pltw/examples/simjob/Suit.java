@@ -16,6 +16,9 @@ public class Suit {
         this.suit = suit;
     }
 
+    public void mulitplySuit(int mulitply) {
+        this.suit = suit * mulitply;
+    }
     public String getObjectId() {
         return objectId;
     }

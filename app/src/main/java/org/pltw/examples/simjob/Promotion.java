@@ -16,6 +16,9 @@ public class Promotion {
     public void setPromotion(int promotion) {
         this.promotion = promotion;
     }
+    public void mulitplyPromotion(int mulitply) {
+        this.promotion = promotion * mulitply;
+    }
 
     public String getObjectId() {
         return objectId;
