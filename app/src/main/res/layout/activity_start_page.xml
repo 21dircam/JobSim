@@ -15,12 +15,15 @@
         android:fontFamily="@font/pixeltext"
         android:text="Click here to move on!"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.803" />
+        app:layout_constraintVertical_bias="0.803"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/textView2"
@@ -33,7 +36,7 @@
         android:fontFamily="@font/pixeltext"
         android:text="Sim Job"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#03A9F4"
+        android:textColor="@android:color/holo_orange_dark"
         android:textSize="170sp"
         app:layout_constraintBottom_toTopOf="@+id/bt-next"
         app:layout_constraintEnd_toEndOf="parent"
