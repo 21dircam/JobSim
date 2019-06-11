@@ -1,22 +1,25 @@
 package org.pltw.examples.simjob;
 
 public class Computer {
-    private int computer;
+    private int multiplier;
     private String objectId;
 
     public Computer(){
 
     }
+    public Computer(int multiplier){
+        this.multiplier = multiplier;
+    }
 
     public int getComputer() {
-        return computer;
+        return multiplier;
     }
 
-    public void setComputer(int computer) {
-        this.computer = computer;
+    public void setComputer(int multiplier) {
+        this.multiplier = multiplier;
     }
     public void mulitplyComputer(int mulitply) {
-        this.computer = computer * mulitply;
+        this.multiplier = multiplier * mulitply;
     }
     public String getObjectId() {
         return objectId;

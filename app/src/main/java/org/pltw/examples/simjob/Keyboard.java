@@ -1,22 +1,26 @@
 package org.pltw.examples.simjob;
 
 public class Keyboard {
-    private int keyboard;
+    private double multiplier;
     private String objectId;
 
     public Keyboard(){
 
     }
 
-    public int getKeyboard() {
-        return keyboard;
+    public Keyboard(double multiplier){
+        this.multiplier = multiplier;
     }
 
-    public void setKeyboard(int keyboard) {
-        this.keyboard = keyboard;
+    public double getMultiplier() {
+        return multiplier;
     }
-    public void mulitplyKeyboard(int mulitply){
-        this.keyboard = keyboard * mulitply;
+
+    public void setMultiplier(double multiplier) {
+        this.multiplier = multiplier;
+    }
+    public void mulitplyKeyboard(double mulitply){
+        this.multiplier = multiplier * mulitply;
     }
 
     public String getObjectId() {

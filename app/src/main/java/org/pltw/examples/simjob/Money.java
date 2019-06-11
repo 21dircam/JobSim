@@ -16,7 +16,7 @@ public class Money {
         this.money = money;
     }
 
-    public void addMoney(double money) {
+    public void addMoney(Double money) {
         this.money += money;
     }
 

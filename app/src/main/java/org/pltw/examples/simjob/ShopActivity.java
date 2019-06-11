@@ -2,6 +2,7 @@ package org.pltw.examples.simjob;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -39,6 +40,7 @@ public class ShopActivity extends AppCompatActivity
         findViewById(R.id.bt_KeyBoard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i("ShopActivity", "Clicked on Keyboard!");
                 cost = 4;
                 Backendless.Data.of(Keyboard.class).find(new AsyncCallback<List<Keyboard>>() {
                     @Override
@@ -62,7 +64,7 @@ public class ShopActivity extends AppCompatActivity
                             subtractMoney();
                         }
                         else{
-                            keyboard = new Keyboard();
+                            keyboard = new Keyboard(1);
                             keyboard.mulitplyKeyboard(4);
                             Backendless.Persistence.save(keyboard,  new AsyncCallback<Keyboard>() {
                                 public void handleResponse(Keyboard response) {
@@ -118,7 +120,7 @@ public class ShopActivity extends AppCompatActivity
                             subtractMoney();
                         }
                         else{
-                            suit = new Suit();
+                            suit = new Suit(1);
                             suit.mulitplySuit(2);
                             Backendless.Persistence.save(suit,  new AsyncCallback<Suit>() {
                                 public void handleResponse(Suit response) {
@@ -175,7 +177,7 @@ public class ShopActivity extends AppCompatActivity
                             subtractMoney();
                         }
                         else{
-                            computer = new Computer();
+                            computer = new Computer(1);
                             computer.mulitplyComputer(2);
                             Backendless.Persistence.save(computer,  new AsyncCallback<Computer>() {
                                 public void handleResponse(Computer response) {
@@ -232,7 +234,7 @@ public class ShopActivity extends AppCompatActivity
                             subtractMoney();
                         }
                         else{
-                            promotion = new Promotion();
+                            promotion = new Promotion(1);
                             promotion.mulitplyPromotion(100);
                             Backendless.Persistence.save(promotion,  new AsyncCallback<Promotion>() {
                                 public void handleResponse(Promotion response) {

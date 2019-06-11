@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Money money;
+    private Keyboard keyboard;
+    private Computer computer;
+    private Promotion promotion;
+    private Suit suit;
     private TextView etMoneyCount;
 
     @Override
@@ -48,6 +52,21 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         createMoney();
 
+        Backendless.Persistence.save(keyboard,  new AsyncCallback<Keyboard>() {
+            public void handleResponse(Keyboard response) {
+                keyboard = response;
+
+            }
+
+            public void handleFault(BackendlessFault fault) {
+
+            }
+
+            {
+
+            }
+        });
+
 
 
 
@@ -55,7 +74,7 @@ public class MainActivity extends AppCompatActivity
         findViewById(R.id.bt_makeMoney).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                money.addMoney(1);
+                money.addMoney(1.0);
                 etMoneyCount.setText(Double.toString(money.getMoney()));
                 Backendless.Persistence.save(money, new AsyncCallback<Money>() {
                     public void handleResponse(Money response) {
@@ -96,7 +115,8 @@ public class MainActivity extends AppCompatActivity
                 }else{
                     money = new Money();
                     money.setMoney(Double.parseDouble(etMoneyCount.getText().toString()));
-                    money.addMoney(1);
+
+                    money.addMoney(1.0);
                     etMoneyCount.setText(Double.toString(money.getMoney()));
                     Backendless.Persistence.save(money, new AsyncCallback<Money>() {
                         public void handleResponse(Money response) {
@@ -124,6 +144,9 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+
+
 
 
 

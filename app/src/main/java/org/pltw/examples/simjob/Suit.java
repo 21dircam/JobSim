@@ -1,23 +1,26 @@
 package org.pltw.examples.simjob;
 
 public class Suit {
-    private int suit;
+    private int multiplier;
     private String objectId;
 
     public Suit(){
 
     }
+    public Suit(int multiplier){
+        this.multiplier = multiplier;
+    }
 
     public int getSuit() {
-        return suit;
+        return multiplier;
     }
 
     public void setSuit(int suit) {
-        this.suit = suit;
+        this.multiplier = suit;
     }
 
     public void mulitplySuit(int mulitply) {
-        this.suit = suit * mulitply;
+        this.multiplier = multiplier * mulitply;
     }
     public String getObjectId() {
         return objectId;
